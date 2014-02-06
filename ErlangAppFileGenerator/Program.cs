@@ -51,7 +51,7 @@ namespace ErlangAppFileGenerator
             string moduleList = Modules();
 
             Regex re = new Regex(PLACEHOLDER, RegexOptions.IgnoreCase);
-            string output = re.Replace(appFileTemplate, moduleList);
+            string output = re.Replace(appFileTemplate, @"[" + moduleList + @"]");
 
             File.WriteAllText(Path.Combine(OUTPUT_FOLDER, appName + OUTPUT_EXTENSION), output);
         }
